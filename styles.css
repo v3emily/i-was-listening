@@ -1,0 +1,75 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: "Italiana", serif;
+}
+
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 10vh;
+    font-family: "Italiana", serif;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    justify-content: center;
+}
+
+.number {
+    margin-top: -5vh;
+    position: relative;
+    font-size: 10rem;
+    z-index: 1;
+}
+
+.triangle {
+    position: relative;
+    font-size: 2rem;
+    z-index: 5;
+}
+
+#start-btn {
+    height: 8vh;
+    background-color: black;
+    color: white;
+    padding-left: 13vw;
+    padding-right: 13vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    margin-top: 10vh;
+    font-size: 3rem;
+    border-radius: 1rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin: 3vh;
+}
+
+.morning {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    border: 0.2rem solid black;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 0.5rem;
+}

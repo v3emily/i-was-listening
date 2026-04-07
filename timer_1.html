@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I was listening to that!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&display=swap">
+</head>
+<body>
+<div class="landing">
+    <h1>I was listening to that!</h1>
+    <div class="numbers">
+        <div class="num_group">
+            <div class="triangle" id="up1">▲</div>
+            <div class="number" id="n1">0</div>
+            <div class="triangle" id="down1">▼</div>
+        </div>
+        <div class="num_group">
+            <div class="triangle" id="up2">▲</div>
+            <div class="number" id="n2">0</div>
+            <div class="triangle" id="down2">▼</div>
+        </div>
+        <div class="num_group">
+        <div id="colon" style="font-size: 10rem; margin-top: 1vh; font-family: Italiana, serif;">:</div>
+        </div>
+        <div class="num_group">
+            <div class="triangle" id="up3">▲</div>
+            <div class="number" id="n3">0</div>
+            <div class="triangle" id="down3">▼</div>
+        </div>
+        <div class="num_group">
+            <div class="triangle" id="up4">▲</div>
+            <div class="number" id="n4">0</div>
+            <div class="triangle" id="down4">▼</div>
+        </div>
+    </div>
+    <div id="start-btn"> start</div>
+    <div class="options">
+        <div class="morning">
+            <div class="box" id="bMorning"></div>
+            <div style="font-size: 1.5rem;">morning routine</div>
+        </div>
+    </div>
+    <audio id="sound1" src="sound1.MP4"></audio>
+</div>
+
+<script>
+const up1 = document.getElementById("up1")
+const up2 = document.getElementById("up2")
+const up3 = document.getElementById("up3")
+const up4 = document.getElementById("up4")
+
+const down1 = document.getElementById("down1")
+const down2 = document.getElementById("down2")
+const down3 = document.getElementById("down3")
+const down4 = document.getElementById("down4")
+
+const n1 = document.getElementById('n1')
+const n2 = document.getElementById('n2')
+const n3 = document.getElementById('n3')
+const n4 = document.getElementById('n4')
+
+var start = false
+
+//Set up arrows
+up1.addEventListener("click", async () => {
+    if ((parseInt(n1.textContent, 10) < 9) && start == false){
+        n1.textContent = parseInt(n1.textContent, 10) + 1;
+    }
+});
+
+up2.addEventListener("click", async () => {
+    if ((parseInt(n2.textContent, 10) < 9) && start == false){
+        n2.textContent = parseInt(n2.textContent, 10) + 1;
+    }
+});
+
+up3.addEventListener("click", async () => {
+    if ((parseInt(n3.textContent, 10) < 9)  && start == false){
+        n3.textContent = parseInt(n3.textContent, 10) + 1;
+    }
+});
+
+up4.addEventListener("click", async () => {
+    if ((parseInt(n4.textContent, 10) < 9)  && start == false){
+        n4.textContent = parseInt(n4.textContent, 10) + 1;
+    }
+});
+
+down1.addEventListener("click", async () => {
+    if ((parseInt(n1.textContent, 10) > 0)  && start == false){
+        n1.textContent = parseInt(n1.textContent, 10) - 1;
+    }
+});
+
+down2.addEventListener("click", async () => {
+    if ((parseInt(n2.textContent, 10) > 0)  && start == false){
+        n2.textContent = parseInt(n2.textContent, 10) - 1;
+    }
+});
+
+down3.addEventListener("click", async () => {
+    if ((parseInt(n3.textContent, 10) > 0)  && start == false){
+        n3.textContent = parseInt(n3.textContent, 10) - 1;
+    }
+});
+
+down4.addEventListener("click", async () => {
+    if ((parseInt(n4.textContent, 10) > 0)  && start == false){
+        n4.textContent = parseInt(n4.textContent, 10) - 1;
+    }
+});
+
+//Timer countdown
+const startBtn = document.getElementById("start-btn")
+const colon = document.getElementById("colon")
+const sound1 = document.getElementById("sound1")
+
+startBtn.addEventListener("click", async () => {
+    start = true
+    up1.style.display = "none";
+    up2.style.display = "none";
+    up3.style.display = "none";
+    up4.style.display = "none";
+    down1.style.display = "none";
+    down2.style.display = "none";
+    down3.style.display = "none";
+    down4.style.display = "none";
+    colon.style.marginTop = "-5vh";
+    startCountdown();
+    setInterval(() => {
+        let totalSeconds = getTotalSeconds();
+        if (totalSeconds <= 0) {
+            sound1.volume = 0.5;
+            sound1.play();
+        }
+    }, 1000);
+});
+
+//from ChatGPT to decrement time (simple)
+
+let timer;
+
+function getTotalSeconds() {
+    const minutes = parseInt(n1.textContent) * 10 + parseInt(n2.textContent);
+    const seconds = parseInt(n3.textContent) * 10 + parseInt(n4.textContent);
+    return minutes * 60 + seconds;
+}
+
+function updateDisplay(totalSeconds) {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    let m1 = Math.floor(minutes / 10);
+    let m2 = minutes % 10;
+    let s1 = Math.floor(seconds / 10);
+    let s2 = seconds % 10;
+
+    n1.textContent = m1;
+    n2.textContent = m2;
+    n3.textContent = s1;
+    n4.textContent = s2;
+}
+
+function startCountdown() {
+    let totalSeconds = getTotalSeconds();
+
+    timer = setInterval(() => {
+        if (totalSeconds <= 0) {
+            clearInterval(timer);
+            start = finished1;
+            return;
+        }
+
+        totalSeconds--;
+        updateDisplay(totalSeconds);
+
+    }, 1000);
+}
+
+//Morning routine option implementation
+
+const bMorning = document.getElementById("bMorning")
+
+var bMorningSelect = false
+
+bMorning.addEventListener("click", async () => {
+    if (bMorningSelect == false) {
+        bMorning.style.background = "black";
+        bMorningSelect = true;
+    } else {
+        bMorning.style.background = "transparent";
+        bMorningSelect = false;
+    }
+});
+</script>
+
+</body>
+</html>

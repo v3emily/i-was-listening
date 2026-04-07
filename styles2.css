@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100vh;
     font-family: "Italiana", serif;
-    color: white;
+    color: black;
 }
 
 .landing {
@@ -17,8 +17,8 @@
     width: 100vw;
     height: 100vh;
     font-family: "Italiana", serif;
-    color: white;
-    background-image: url("bg1.png");
+    color: black;
+    background-image: url("bg2.png");
     background-size: cover;
 }
 
@@ -44,18 +44,18 @@
     position: relative;
     font-size: 2rem;
     z-index: 5;
-    color: black;
+    color: white;
 }
 
 .triangle:hover {
     cursor: pointer;
-    color: rgb(36, 36, 36);
+    color: rgb(194, 194, 194);
 }
 
 #start-btn {
     height: 8vh;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     padding-left: 13vw;
     padding-right: 13vw;
     padding-top: 2vh;
@@ -67,7 +67,7 @@
 
 #start-btn:hover{
     cursor: pointer;
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(194, 194, 194);
 }
 
 .options {
@@ -87,7 +87,7 @@
 }
 
 .box {
-    border: 0.2rem solid black;
+    border: 0.2rem solid white;
     width: 3vw;
     height: 3vw;
     border-radius: 0.5rem;

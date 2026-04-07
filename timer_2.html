@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>I was listening to that!</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&display=swap">
 </head>
 <body>
@@ -41,7 +41,7 @@
                 <div style="font-size: 1.5rem;">morning routine</div>
             </div>
             <div class="container" id="ch">
-                <div class="change" id="changeIcon" style="color: black; font-size: 3rem;">🗘</div>
+                <div class="change" id="changeIcon" style="color: white; font-size: 3rem;">🗘</div>
                 <div style="font-size: 1.5rem;">change theme</div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                 <div style="font-size: 1.5rem;">do skincare</div>
             </div>
         </div>
-        <audio id="sound1" src="sound1.MP4"></audio>
+        <audio id="sound1" src="sound2.MP4"></audio>
     </div>
 </div>
 
@@ -249,7 +249,7 @@ var bSkinSelect = false
 
 bMorning.addEventListener("click", async () => {
     if (bMorningSelect == false) {
-        bMorning.style.background = "black";
+        bMorning.style.background = "white";
         bMorningSelect = true;
     } else {
         bMorning.style.background = "transparent";
@@ -259,7 +259,7 @@ bMorning.addEventListener("click", async () => {
 
 bTeeth.addEventListener("click", async () => {
     if (bTeethSelect == false) {
-        bTeeth.style.background = "black";
+        bTeeth.style.background = "white)";
         bTeethSelect = true;
     } else {
         bTeeth.style.background = "transparent";
@@ -269,7 +269,7 @@ bTeeth.addEventListener("click", async () => {
 
 bFace.addEventListener("click", async () => {
     if (bFaceSelect == false) {
-        bFace.style.background = "black";
+        bFace.style.background = "white";
         bFaceSelect = true;
     } else {
         bFace.style.background = "transparent";
@@ -279,16 +279,13 @@ bFace.addEventListener("click", async () => {
 
 bSkin.addEventListener("click", async () => {
     if (bSkinSelect == false) {
-        bSkin.style.background = "black";
+        bSkin.style.background = "white";
         bSkinSelect = true;
     } else {
         bSkin.style.background = "transparent";
         bSkinSelect = false;
     }
 });
-
-let checklistTimer;
-let alarmPlaying = false;
 
 function checklistCountdown() {
     volTime = Date.now() + 6000;
@@ -311,7 +308,7 @@ function checklistCountdown() {
 const changeIcon = document.getElementById("changeIcon")
 
 changeIcon.addEventListener("click", async () => {
-    window.location.href="timer_2.html";
+    window.location.href="timer_1.html";
 });
 </script>
 

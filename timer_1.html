@@ -146,6 +146,7 @@ startBtn.addEventListener("click", async () => {
         clearInterval(timer);
         sound1.pause();
         startBtn.textContent = "stop";
+        stopped = true;
         if (bMorningSelect == true) {
             startBtn.style.display = "none";
             oDefault.style.display = "none";
@@ -222,7 +223,7 @@ function startCountdown() {
 }
 
 function volCountdown() {
-    volTime = Date.now() + 600000;
+    volTime = Date.now() + 60000;
     setInterval(() => {
         if ((Date.now() >= volTime) && (stopped == false)) {
             clearInterval(timer);
@@ -291,7 +292,7 @@ let checklistTimer;
 let alarmPlaying = false;
 
 function checklistCountdown() {
-    volTime = Date.now() + 6000;
+    volTime = Date.now() + 600000;
     alarmPlaying = false;
     checklistTimer = setInterval(() => {
         if ((Date.now() >= volTime) && ((bTeethSelect == false) || (bFaceSelect == false) || (bSkinSelect == false)) && (alarmPlaying == false)) {
@@ -301,7 +302,9 @@ function checklistCountdown() {
         }
         if (bTeethSelect && bFaceSelect && bSkinSelect) {
             clearInterval(checklistTimer);
+            checklistTimer = null;
             sound1.pause();
+            console.log('Checklist complete, sound paused');
             return
         }
     }, 1000);

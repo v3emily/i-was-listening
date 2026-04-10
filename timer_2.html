@@ -146,6 +146,7 @@ startBtn.addEventListener("click", async () => {
         clearInterval(timer);
         sound1.pause();
         startBtn.textContent = "stop";
+        stopped = true;
         if (bMorningSelect == true) {
             startBtn.style.display = "none";
             oDefault.style.display = "none";
@@ -222,7 +223,7 @@ function startCountdown() {
 }
 
 function volCountdown() {
-    volTime = Date.now() + 600000;
+    volTime = Date.now() + 60000;
     setInterval(() => {
         if ((Date.now() >= volTime) && (stopped == false)) {
             clearInterval(timer);
@@ -288,7 +289,7 @@ bSkin.addEventListener("click", async () => {
 });
 
 function checklistCountdown() {
-    volTime = Date.now() + 6000;
+    volTime = Date.now() + 600000;
     alarmPlaying = false;
     checklistTimer = setInterval(() => {
         if ((Date.now() >= volTime) && ((bTeethSelect == false) || (bFaceSelect == false) || (bSkinSelect == false)) && (alarmPlaying == false)) {

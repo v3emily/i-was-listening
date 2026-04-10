@@ -49,7 +49,7 @@
 
 .triangle:hover {
     cursor: pointer;
-    color: rgb(194, 194, 194);
+    color: rgb(200, 233, 255);
 }
 
 #start-btn {
@@ -67,7 +67,7 @@
 
 #start-btn:hover{
     cursor: pointer;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(200, 233, 255);
 }
 
 .options {
